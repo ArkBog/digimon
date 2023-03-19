@@ -30,21 +30,27 @@ body {
 }
 
 #app header nav {
+  width: 100%;
   margin-top: 1rem;
   display: flex;
   gap: 5%;
   justify-content: center;
-  list-style-type: none;
   letter-spacing: 0.1rem;
-  text-transform: uppercase;
 }
 
-#app header nav .option {
+#app header nav .options {
+  width: 100%;
+  display: flex;
+  gap: 5%;
+  justify-content: center;
+}
+
+#app header nav .options .option {
   background: none;
   border: none;
 }
 
-#app header nav .option:hover {
+#app header nav .options .option:hover {
   cursor: pointer;
 }
 
@@ -210,11 +216,22 @@ a {
 }
 
 @media screen and (max-width: 1000px) {
-  #app header nav .option {
+  #app header nav {
+    display: flex;
+    flex-direction: column;
+  }
+  #app header nav .options {
     display: none;
+  }
+  #app header nav .active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
   }
   #app header nav .ham {
     display: block;
+    text-align: center;
+    padding: 1rem;
   }
   #app .home .background {
     height: 100vh;

@@ -23,20 +23,26 @@ body {
     z-index: 2;
     width: 100%;
     nav {
+      width: 100%;
       margin-top: 1rem;
       display: flex;
       gap: 5%;
       justify-content: center;
-      list-style-type: none;
       letter-spacing: 0.1rem;
-      text-transform: uppercase;
-      .option {
-        background: none;
-        border: none;
-        &:hover {
-          cursor: pointer;
+      .options{
+        width: 100%;
+        display: flex;
+        gap: 5%;
+        justify-content: center;
+        .option {
+          background: none;
+          border: none;
+          &:hover {
+            cursor: pointer;
+          }
         }
       }
+      
       .ham{
         display: none;
         &:hover{
@@ -186,16 +192,26 @@ a {
   color: var(--text-color);
 }
 
+
 @media screen and (max-width: 1000px){
   #app
   {
     header{
     nav{
-      .option{
+      display: flex;
+      flex-direction: column;
+      .options{
         display: none;
+      }
+      .active{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
       }
       .ham{
         display: block;
+        text-align: center;
+        padding: 1rem;
       }
     }
   }

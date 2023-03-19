@@ -31,7 +31,7 @@ Application get datas from server and show them. All elements of the application
 
 
 ## Setup
-[Preview]()
+[Preview](https://arkbog.github.io/digimon/)
 
 
 ## Project Status

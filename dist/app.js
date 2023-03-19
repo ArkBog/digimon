@@ -1,6 +1,8 @@
 const app = document.getElementById("app");
 let datas = [];
 const header = document.createElement("header");
+const options = document.createElement("div");
+options.classList.add("options");
 const navbar = document.createElement("nav");
 const menu = ["Home", "About us", "Collection", "Contact"];
 function removeModules() {
@@ -9,17 +11,12 @@ function removeModules() {
     }
     app.appendChild(header);
 }
-const hamburgerMenu = document.createElement("i");
-hamburgerMenu.classList.add("ham");
-hamburgerMenu.classList.add("fa-solid");
-hamburgerMenu.classList.add("fa-bars");
-navbar.appendChild(hamburgerMenu);
 menu.forEach((menuItem) => {
     const option = document.createElement("button");
     option.classList.add("option");
     option.setAttribute("value", `${menuItem}`);
     option.innerText = `${menuItem}`;
-    navbar.appendChild(option);
+    options.appendChild(option);
     option.addEventListener("click", () => {
         switch (option.value) {
             case "Home":
@@ -37,6 +34,15 @@ menu.forEach((menuItem) => {
         }
     });
 });
+const hamburgerMenu = document.createElement("i");
+hamburgerMenu.classList.add("ham");
+hamburgerMenu.classList.add("fa-solid");
+hamburgerMenu.classList.add("fa-bars");
+navbar.appendChild(hamburgerMenu);
+hamburgerMenu.addEventListener("click", () => {
+    options.classList.toggle("active");
+});
+navbar.appendChild(options);
 header.appendChild(navbar);
 app.appendChild(header);
 function renderHome() {

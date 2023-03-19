@@ -4,6 +4,9 @@ let datas = [];
 
 const header: HTMLElement = document.createElement("header");
 
+const options: HTMLElement = document.createElement("div");
+options.classList.add("options");
+
 const navbar: HTMLElement = document.createElement("nav");
 
 
@@ -16,11 +19,6 @@ function removeModules() {
   app.appendChild(header);
 }
 
-const hamburgerMenu: HTMLElement = document.createElement("i");
-hamburgerMenu.classList.add("ham");
-hamburgerMenu.classList.add("fa-solid");
-hamburgerMenu.classList.add("fa-bars");
-navbar.appendChild(hamburgerMenu);
 
 
 menu.forEach((menuItem) => {
@@ -28,7 +26,7 @@ menu.forEach((menuItem) => {
   option.classList.add("option");
   option.setAttribute("value", `${menuItem}`);
   option.innerText = `${menuItem}`;
-  navbar.appendChild(option);
+  options.appendChild(option);
   option.addEventListener("click", () => {
     switch (option.value) {
       case "Home":
@@ -47,6 +45,16 @@ menu.forEach((menuItem) => {
   });
 });
 
+const hamburgerMenu: HTMLElement = document.createElement("i");
+hamburgerMenu.classList.add("ham");
+hamburgerMenu.classList.add("fa-solid");
+hamburgerMenu.classList.add("fa-bars");
+navbar.appendChild(hamburgerMenu);
+hamburgerMenu.addEventListener("click", () => {
+  options.classList.toggle("active");
+})
+
+navbar.appendChild(options);
 header.appendChild(navbar);
 app.appendChild(header);
 
